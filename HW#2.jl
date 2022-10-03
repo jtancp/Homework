@@ -5,13 +5,25 @@
 ###function in Julia, call it NPV(c, r), that computes the present value of the cash flow,
 ###which is given by the expression
 
+function NPV(c, r)
+    PV = 0
+    for i in length c
+        PV = PV + c / (1 + r)^i
+    end
+    return PV
+
 
 ###2. Given a constant interest rate per period 𝑟 > 0 and a cash flow, write a function in Julia,
 ###NFV_end(c, r), that computes its net future value at the end of period n, which is given
 ###by the expression
 ###𝑁 𝐹 𝑉𝑒𝑛𝑑 = 𝑐1(1 + 𝑟)𝑛 + 𝑐2(1 + 𝑟)𝑛−1 + ⋯ + 𝑐𝑛(1 + 𝑟).
 
-
+function NPV_end (c, r)
+    NFV_end = 0
+    for i in length c
+        NFV_end = NFV_end + c(1 + r)^i
+    end
+    return NFV_end
 
 
 ###3. Repeat problem 2 above, but now assume that the interest is different from period to
