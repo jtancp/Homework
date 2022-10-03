@@ -43,6 +43,14 @@ NFV_end(c, r)
 ###interpretation is that, for 𝑖 = 1, ... , 𝑛, the amount 𝑐𝑖(1 + 𝑟𝑖) denotes the value, in period
 ### + 1, of payment 𝑐𝑖. Call the function NFV_end(c, r).
 
+function NFV_end(c, r)
+    sum = 0
+    for i in 1:length(c)
+        sum += c[i]*(1+r[i])^(length(c)-i)
+    end
+    return sum
+end
+
 
 ###4. A wholesaler sells you the flour you need to bake bread in your bakery. If you order less
 ###than 25 lbs. of flour, they sell you all the flour you order at 80 cents per pound. If you
@@ -51,6 +59,12 @@ NFV_end(c, r)
 ###order at 60 cents per pound. Write a function in Julia, expense(x), such that, given the
 ###number 𝑥 of lbs. of flour you want to order, the function returns the total cost of your
 ###order.
+
+function expense(x)
+    x <= 25 ? 0.8*x : x <= 250 ? 0.7*x : 0.6*x
+end
+
+expense(30)
 
 
 ###5. Write code to plot the function expense in Julia, with 𝑥 on the horizontal axis and
