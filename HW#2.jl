@@ -27,6 +27,15 @@ NPV(c, r)
 ###by the expression
 ###𝑁 𝐹 𝑉𝑒𝑛𝑑 = 𝑐1(1 + 𝑟)𝑛 + 𝑐2(1 + 𝑟)𝑛−1 + ⋯ + 𝑐𝑛(1 + 𝑟).
 
+function NFV_end(c, r)
+    sum = 0
+    for i in 1:length(c)
+        sum += c[i]*(1+r)^(length(c)-i)
+    end
+    return sum
+end
+
+NFV_end(c, r)
 
 
 ###3. Repeat problem 2 above, but now assume that the interest is different from period to
