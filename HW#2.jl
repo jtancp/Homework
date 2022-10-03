@@ -78,8 +78,21 @@ plot(0:300, expense, label = "Cost", xlabel = "Pounds of Flour", ylabel = "Cost 
 ###hours per day. In any given day, the company is not allowed to hire you for more than
 ###12 hours. Given an hourly wage, 𝑤, and a number of hours worked in the day, 𝐿 > 0,
 ##write a function in Julia, call it salary(w,L), that returns how much money you make
-#1
+#1 If 𝑤 <0, the function should return “please enter a non-negative hourly wage”.
+# If 𝐿 < 0, the function should return “please enter a non-negative number of hours
+#worked”.
+#If 𝐿 > 12, the function should return “please enter a number of hours worked no greater
+#than 12”.
 
 function salary(w, L)
-    L <= 8 ?  w*L : L <= 12 ?  w*8 + 1.5*w*(L-8) : return("Error: You can't work more than 12 hours in a day")
+    if w < 0
+        return "please enter a non-negative hourly wage"
+    elseif L < 0
+        return "please enter a non-negative number of hours worked"
+    elseif L > 12
+        return "please enter a number of hours worked no greater than 12"
+    else
+        return w*L + (L > 8 ? (L-8)*w*0.5 : 0)
+    end
 end
+
