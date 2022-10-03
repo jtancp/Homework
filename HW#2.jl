@@ -5,12 +5,21 @@
 ###function in Julia, call it NPV(c, r), that computes the present value of the cash flow,
 ###which is given by the expression
 
+
+c =  [100, 100, 100, 100, 100]
+r = 0.05
+
 function NPV(c, r)
-    PV = 0
-    for i in length c
-        PV = PV + c / (1 + r)^i
+    sum = 0
+    for i in 1:length(c)
+        sum += c[i]/(1+r)^i
     end
-    return PV
+    return sum
+end
+
+NPV(c, r)
+
+
 
 
 ###2. Given a constant interest rate per period 𝑟 > 0 and a cash flow, write a function in Julia,
@@ -18,12 +27,6 @@ function NPV(c, r)
 ###by the expression
 ###𝑁 𝐹 𝑉𝑒𝑛𝑑 = 𝑐1(1 + 𝑟)𝑛 + 𝑐2(1 + 𝑟)𝑛−1 + ⋯ + 𝑐𝑛(1 + 𝑟).
 
-function NPV_end (c, r)
-    NFV_end = 0
-    for i in length c
-        NFV_end = NFV_end + c(1 + r)^i
-    end
-    return NFV_end
 
 
 ###3. Repeat problem 2 above, but now assume that the interest is different from period to
@@ -50,23 +53,4 @@ function NPV_end (c, r)
 ###12 hours. Given an hourly wage, 𝑤, and a number of hours worked in the day, 𝐿 > 0,
 ##write a function in Julia, call it salary(w,L), that returns how much money you make
 #1
-
-
-in the day. Have the function return the following messages (and then terminate) when
-the following conditions hold:
-• If 𝑤 <0, the function should return “please enter a non-negative hourly wage”.
-• If 𝐿 < 0, the function should return “please enter a non-negative number of hours
-worked”.
-• If 𝐿 > 12, the function should return “please enter a number of hours worked no greater
-than 12”.
-7. Letting 𝑤 = 20 dollars per hour, write code to plot the function salary, with 𝐿 on the
-horizontal axis and salary(20, L) on the vertical axis, with 𝐿 ranging from 0 to 12
-hours.
-The deliverable is a single .jl file that contains the answers to all the questions posed, num-
-bered. Make sure to properly document your code to help the grader (and yourself!) under-
-stand what you did.
-You may submit this assignment in groups of up to three students. If you discuss the assign-
-ment with other students in the class, and you need to properly attribute some of the ideas
-you used in your assignment to them, please report in your assignment who you discussed the
-assignment with, and what they helped you with. Give credit where credit is due.
 
