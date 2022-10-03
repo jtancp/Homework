@@ -96,3 +96,12 @@ function salary(w, L)
     end
 end
 
+
+##Letting 𝑤 = 20 dollars per hour, write code to plot the function salary, with 𝐿 on the
+#horizontal axis and salary(20, L) on the vertical axis, with 𝐿 ranging from 0 to 12
+#hours.
+
+w = 20 
+using Plots 
+plot(0:12, L -> salary(w, L), label = "Salary", xlabel = "Hours Worked", ylabel = "Salary in USD", title = "Salary of a Worker")
+
