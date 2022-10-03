@@ -70,6 +70,9 @@ expense(30)
 ###5. Write code to plot the function expense in Julia, with 𝑥 on the horizontal axis and
 ###expense(x) on the vertical axis, with 𝑥 ranging from 0 to 300 lbs. (you may use the
 ###package Plots -or other Julia packages to this effect)
+using Plots 
+plot(0:300, expense, label = "Cost", xlabel = "Pounds of Flour", ylabel = "Cost in USD", title = "Cost of Flour")
+
 ###6. You work for a company for a wage of 𝑤 > 0 per hour. They’re required, by law, to pay
 ##you “time and a half” for any hour (or fraction of an hour) you work in excess of eight
 ###hours per day. In any given day, the company is not allowed to hire you for more than
@@ -77,3 +80,6 @@ expense(30)
 ##write a function in Julia, call it salary(w,L), that returns how much money you make
 #1
 
+function salary(w, L)
+    L <= 8 ?  w*L : L <= 12 ?  w*8 + 1.5*w*(L-8) : return("Error: You can't work more than 12 hours in a day")
+end
