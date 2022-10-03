@@ -30,7 +30,7 @@ NPV(c, r)
 function NFV_end(c, r)
     sum = 0
     for i in 1:length(c)
-        sum += c[i]*(1+r)^(length(c)-i)
+        sum += c[i]*(1+r[i])^(length(c)-i)
     end
     return sum
 end
