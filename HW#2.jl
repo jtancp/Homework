@@ -20,14 +20,14 @@ end
 function NFV_end(c, r)
     sum = 0
     for i in 1:length(c)
-        sum += c[i]*(1+r[i])^(length(c)-i)
+        sum += c[i] * (1 + r[i]) ^ (length(c) - i)
     end
     return sum
 end
 
 #Problem 4: Code Jet; Comments Michelle
 function expense(x)
-    x <= 25 ? 0.8*x : x <= 250 ? 0.7*x : 0.6*x
+    x <= 25 ? 0.8 * x : x <= 250 ? 0.7 * x : 0.6 * x
 end
 
 #Problem 5: Code Jet & Michelle; Comments Michelle
@@ -43,7 +43,7 @@ function salary(w, L)
     elseif L > 12
         return "please enter a number of hours worked no greater than 12"
     else
-        return w*L + (L > 8 ? (L-8)*w*0.5 : 0)
+        return w*L + (L > 8 ? (L - 8) * w * 0.5 : 0)
     end
 end
 
