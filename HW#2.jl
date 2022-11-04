@@ -44,7 +44,7 @@ function expense(x)
     x < 25 ? 0.8 * x : x < 250 ? 0.7 * x : 0.6 * x
 end
 
-#Problem 5: Code Jet & Michelle; Comments Michelle
+#Problem 5: Code Jet & Michelle; Comments Michelleaeuaoe
 # call Plots package
 using Plots
 # create plot of expense function with x from 0 to 300
